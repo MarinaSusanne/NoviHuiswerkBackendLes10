@@ -1,10 +1,9 @@
-package Controllers;
+package com.example.Huiswerkles10backend.Controllers;
 
-import Exceptions.IndexOutOfBounds;
-import Exceptions.RecordNotFoundException;
+import com.example.Huiswerkles10backend.Exceptions.RecordNotFoundException;
+import com.example.Huiswerkles10backend.Exceptions.TelevisionNameTooLongException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.javapoet.ClassName;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -20,6 +19,12 @@ public class ExceptionController {
 
     @ExceptionHandler(value = IndexOutOfBoundsException.class)
     public ResponseEntity<Object> exceptions (IndexOutOfBoundsException exception){
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("dit is staat niet in de database", HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = TelevisionNameTooLongException.class)
+    public ResponseEntity<String> exception(TelevisionNameTooLongException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
 }

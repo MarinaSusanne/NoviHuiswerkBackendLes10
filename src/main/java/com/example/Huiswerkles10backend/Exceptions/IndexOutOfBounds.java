@@ -1,4 +1,4 @@
-package Exceptions;
+package com.example.Huiswerkles10backend.Exceptions;
 
 public class IndexOutOfBounds extends RuntimeException {
 
