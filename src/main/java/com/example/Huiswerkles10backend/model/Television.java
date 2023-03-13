@@ -31,7 +31,6 @@ public class Television {
     private int sold;
 
 
-
     //getters en setters
     public long getId() {
         return id;
@@ -44,6 +43,7 @@ public class Television {
     public String getBrand() {
         return brand;
     }
+
     public String getName() {
         return name;
     }
@@ -105,7 +105,7 @@ public class Television {
         this.screenQuality = screenQuality;
     }
 
-    public boolean isSmartTv() {
+    public boolean getSmartTv() {
         return smartTv;
     }
 
@@ -113,7 +113,7 @@ public class Television {
         this.smartTv = smartTv;
     }
 
-    public boolean isWifi() {
+    public boolean getWifi() {
         return wifi;
     }
 
@@ -121,7 +121,7 @@ public class Television {
         this.wifi = wifi;
     }
 
-    public boolean isVoiceControl() {
+    public boolean getVoiceControl() {
         return voiceControl;
     }
 
@@ -129,7 +129,7 @@ public class Television {
         this.voiceControl = voiceControl;
     }
 
-    public boolean isHdr() {
+    public boolean getHdr() {
         return hdr;
     }
 
@@ -137,7 +137,7 @@ public class Television {
         this.hdr = hdr;
     }
 
-    public boolean isBluetooth() {
+    public boolean getBluetooth() {
         return bluetooth;
     }
 
@@ -145,7 +145,7 @@ public class Television {
         this.bluetooth = bluetooth;
     }
 
-    public boolean isAmbiLight() {
+    public boolean getAmbiLight() {
         return ambiLight;
     }
 
@@ -168,7 +168,7 @@ public class Television {
     public void setSold(int sold) {
         this.sold = sold;
     }
+}
 
 
-    }
 
