@@ -16,23 +16,16 @@ public class Television {
     public String brand;
     public String name;
     private String type;
-    private double price;
-    private double availableSize;
-    private double refreshRate;
+    private Double price;
+    private Double availableSize;
+    private Double refreshRate;
     private String screenType;
     private String screenQuality;
-    private boolean smartTv;
-    private boolean wifi;
-    private boolean voiceControl;
-    private boolean hdr;
-    private boolean bluetooth;
-    private boolean ambiLight;
-    private int originalStock;
-    private int sold;
+    private Boolean smartTv;
+    private Boolean wifi;
+    private Boolean voiceControl;
 
-
-    //getters en setters
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -44,17 +37,16 @@ public class Television {
         return brand;
     }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-
-    public void setBrand(String brand) {
-        this.brand = brand;
     }
 
     public String getType() {
@@ -65,27 +57,27 @@ public class Television {
         this.type = type;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public double getAvailableSize() {
+    public Double getAvailableSize() {
         return availableSize;
     }
 
-    public void setAvailableSize(double availableSize) {
+    public void setAvailableSize(Double availableSize) {
         this.availableSize = availableSize;
     }
 
-    public double getRefreshRate() {
+    public Double getRefreshRate() {
         return refreshRate;
     }
 
-    public void setRefreshRate(double refreshRate) {
+    public void setRefreshRate(Double refreshRate) {
         this.refreshRate = refreshRate;
     }
 
@@ -105,70 +97,74 @@ public class Television {
         this.screenQuality = screenQuality;
     }
 
-    public boolean getSmartTv() {
+    public Boolean getSmartTv() {
         return smartTv;
     }
 
-    public void setSmartTv(boolean smartTv) {
+    public void setSmartTv(Boolean smartTv) {
         this.smartTv = smartTv;
     }
 
-    public boolean getWifi() {
+    public Boolean getWifi() {
         return wifi;
     }
 
-    public void setWifi(boolean wifi) {
+    public void setWifi(Boolean wifi) {
         this.wifi = wifi;
     }
 
-    public boolean getVoiceControl() {
+    public Boolean getVoiceControl() {
         return voiceControl;
     }
 
-    public void setVoiceControl(boolean voiceControl) {
+    public void setVoiceControl(Boolean voiceControl) {
         this.voiceControl = voiceControl;
     }
 
-    public boolean getHdr() {
+    public Boolean getHdr() {
         return hdr;
     }
 
-    public void setHdr(boolean hdr) {
+    public void setHdr(Boolean hdr) {
         this.hdr = hdr;
     }
 
-    public boolean getBluetooth() {
+    public Boolean getBluetooth() {
         return bluetooth;
     }
 
-    public void setBluetooth(boolean bluetooth) {
+    public void setBluetooth(Boolean bluetooth) {
         this.bluetooth = bluetooth;
     }
 
-    public boolean getAmbiLight() {
+    public Boolean getAmbiLight() {
         return ambiLight;
     }
 
-    public void setAmbiLight(boolean ambiLight) {
+    public void setAmbiLight(Boolean ambiLight) {
         this.ambiLight = ambiLight;
     }
 
-    public int getOriginalStock() {
+    public Integer getOriginalStock() {
         return originalStock;
     }
 
-    public void setOriginalStock(int originalStock) {
+    public void setOriginalStock(Integer originalStock) {
         this.originalStock = originalStock;
     }
 
-    public int getSold() {
+    public Integer getSold() {
         return sold;
     }
 
-    public void setSold(int sold) {
+    public void setSold(Integer sold) {
         this.sold = sold;
     }
+
+    private Boolean hdr;
+    private Boolean bluetooth;
+    private Boolean ambiLight;
+    private Integer originalStock;
+    private Integer sold;
 }
-
-
 

@@ -24,7 +24,6 @@ public class TelevisionService {
 
 
     //aanpassen naar getTelevison methode. CRUD repository geeft een iterable
-
     public List<TelevisionDto> getAllTelevisions() {
         Iterable<Television> televisions = repos.findAll();
         List<TelevisionDto> televisionsOutputDtos = new ArrayList<>();
