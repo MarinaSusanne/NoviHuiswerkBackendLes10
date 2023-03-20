@@ -1,10 +1,8 @@
 package com.example.Huiswerkles10backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "televisions")
@@ -24,6 +22,27 @@ public class Television {
     private Boolean smartTv;
     private Boolean wifi;
     private Boolean voiceControl;
+
+    private Boolean hdr;
+    private Boolean bluetooth;
+    private Boolean ambiLight;
+    private Integer originalStock;
+    private Integer sold;
+
+
+    @OneToOne
+    private RemoteController remoteController;
+
+//    //de makkelijke manier-simpele manier met personalisatie en gedeelte jointable is om de namen handmatig aan te passen
+//    @ManyToMany
+//    @JoinTable(name="television_wallbrackets_combined_table",
+//                joinColumns = @JoinColumn(name="tv_id"),
+//                inverseJoinColumns = @JoinColumn(name="wb_id"))
+//    private List<WallBracket> wallBrackets;
+
+//    @OneToMany (mappedBy = "television")
+//    private List<TelevisionsWallbrackets> televisionsWallbrackets;
+
 
     public Long getId() {
         return id;
@@ -161,10 +180,14 @@ public class Television {
         this.sold = sold;
     }
 
-    private Boolean hdr;
-    private Boolean bluetooth;
-    private Boolean ambiLight;
-    private Integer originalStock;
-    private Integer sold;
+    public RemoteController getRemoteController() {
+        return remoteController;
+    }
+
+    public void setRemoteController(RemoteController remoteController) {
+        this.remoteController = remoteController;
+    }
+
+
 }
 

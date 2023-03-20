@@ -4,6 +4,7 @@ import com.example.Huiswerkles10backend.Exceptions.RecordNotFoundException;
 import com.example.Huiswerkles10backend.dtos.input.TelevisionInputDto;
 import com.example.Huiswerkles10backend.dtos.output.TelevisionDto;
 import com.example.Huiswerkles10backend.model.Television;
+import com.example.Huiswerkles10backend.repository.RemoteControllerRepository;
 import com.example.Huiswerkles10backend.repository.TelevisionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +18,11 @@ public class TelevisionService {
 
     //constructor injection
     private final TelevisionRepository repos;
+    private final RemoteControllerRepository rcrepos;
 
-    public TelevisionService(TelevisionRepository repos) {
+    public TelevisionService(TelevisionRepository repos, RemoteControllerRepository rcrepos) {
         this.repos = repos;
+        this.rcrepos = rcrepos;
     }
 
 
@@ -166,4 +169,26 @@ public class TelevisionService {
         television.setSold(dto.getSold());
         return television;
     }
+
+    public void assignRemoteControllerToTelevision(Long id, Long remoteControllerId) {
+        var optionalTelevision = repos.findById(id);
+        var optionalRemoteController = rcrepos.findById(remoteControllerId);
+
+        if(optionalTelevision.isPresent() && optionalRemoteController.isPresent()) {
+            var television = optionalTelevision.get();
+            var remoteController = optionalRemoteController.get();
+
+            television.setRemoteController(remoteController);
+            repos.save(television);
+        } else {
+            throw new RecordNotFoundException();
+        }
+
+
+
+    }
+
+
+
+
 }

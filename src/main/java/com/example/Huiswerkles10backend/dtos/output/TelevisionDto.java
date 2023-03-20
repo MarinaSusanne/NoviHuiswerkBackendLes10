@@ -18,6 +18,7 @@ public class TelevisionDto {
         private Boolean ambiLight;
         private Integer originalStock;
         private Integer sold;
+        public RemoteControllerDto remoteController;
 
 
         public Long getId() {
@@ -28,7 +29,9 @@ public class TelevisionDto {
             this.id = id;
         }
 
-        public String getType() {
+
+
+    public String getType() {
             return type;
         }
 
@@ -155,4 +158,12 @@ public class TelevisionDto {
         public void setSold(Integer sold) {
             this.sold = sold;
         }
+
+        public RemoteControllerDto getRemoteController() {
+            return remoteController;
+        }
+
+        public void setRemoteController(RemoteControllerDto remoteController) {
+            this.remoteController = remoteController;
+    }
     }

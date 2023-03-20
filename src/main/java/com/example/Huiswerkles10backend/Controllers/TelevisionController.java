@@ -1,6 +1,7 @@
 package com.example.Huiswerkles10backend.Controllers;
 
 import com.example.Huiswerkles10backend.Exceptions.TelevisionNameTooLongException;
+import com.example.Huiswerkles10backend.dtos.input.IdInputDto;
 import com.example.Huiswerkles10backend.dtos.input.TelevisionInputDto;
 import com.example.Huiswerkles10backend.dtos.output.TelevisionDto;
 import com.example.Huiswerkles10backend.model.Television;
@@ -58,4 +59,11 @@ public class TelevisionController {
         TelevisionDto televisionDto = televisionService.updateTelevision(id, newtelevision);
         return ResponseEntity.ok().body(televisionDto);
     }
+
+    @PutMapping("/{id}/remotecontroller")
+    public void assignRemoteControllerToTelevision(@PathVariable ("id") Long id, @Valid @RequestBody IdInputDto input) {
+        televisionService.assignRemoteControllerToTelevision(id, input.id);
+
+    }
+
     }
