@@ -4,6 +4,7 @@ import com.example.Huiswerkles10backend.Exceptions.RecordNotFoundException;
 import com.example.Huiswerkles10backend.dtos.output.CIModuleDto;
 import com.example.Huiswerkles10backend.model.CIModule;
 import com.example.Huiswerkles10backend.repository.CIModuleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,11 +14,13 @@ import java.util.Optional;
 @Service
 public class CIModuleService {
 
-    private final CIModuleRepository cimrepos;
-
-    public CIModuleService(CIModuleRepository cimrepos) {
-        this.cimrepos = cimrepos;
-    }
+    @Autowired
+    private CIModuleRepository cimrepos;
+//    private CIModuleRepository cimrepos;
+//
+//    public CIModuleService(CIModuleRepository cimrepos) {
+//        this.cimrepos = cimrepos;
+//    }
 
     public List<CIModuleDto> getAllCIModules() {
         Iterable<CIModule> ciModules = cimrepos.findAll();

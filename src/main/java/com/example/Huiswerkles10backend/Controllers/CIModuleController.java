@@ -13,6 +13,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+@RestController
+@RequestMapping (value="/cimodule")
 public class CIModuleController {
 
     private final CIModuleService ciModuleService;

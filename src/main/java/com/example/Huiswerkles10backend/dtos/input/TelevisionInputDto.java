@@ -28,6 +28,7 @@ public class TelevisionInputDto {
     private Integer sold;
 
 
+
     public String getType() {
         return type;
     }

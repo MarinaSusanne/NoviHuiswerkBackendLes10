@@ -4,6 +4,7 @@ import com.example.Huiswerkles10backend.Exceptions.RecordNotFoundException;
 import com.example.Huiswerkles10backend.dtos.input.TelevisionInputDto;
 import com.example.Huiswerkles10backend.dtos.output.TelevisionDto;
 import com.example.Huiswerkles10backend.model.Television;
+import com.example.Huiswerkles10backend.repository.CIModuleRepository;
 import com.example.Huiswerkles10backend.repository.RemoteControllerRepository;
 import com.example.Huiswerkles10backend.repository.TelevisionRepository;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,13 @@ public class TelevisionService {
     private final TelevisionRepository repos;
     private final RemoteControllerRepository rcrepos;
 
-    public TelevisionService(TelevisionRepository repos, RemoteControllerRepository rcrepos) {
+    private final CIModuleRepository cimrepos;
+
+
+    public TelevisionService(TelevisionRepository repos, RemoteControllerRepository rcrepos, CIModuleRepository cimrepos) {
         this.repos = repos;
         this.rcrepos = rcrepos;
+        this.cimrepos = cimrepos;
     }
 
 
@@ -174,7 +179,7 @@ public class TelevisionService {
         var optionalTelevision = repos.findById(id);
         var optionalRemoteController = rcrepos.findById(remoteControllerId);
 
-        if(optionalTelevision.isPresent() && optionalRemoteController.isPresent()) {
+        if (optionalTelevision.isPresent() && optionalRemoteController.isPresent()) {
             var television = optionalTelevision.get();
             var remoteController = optionalRemoteController.get();
 
@@ -183,12 +188,19 @@ public class TelevisionService {
         } else {
             throw new RecordNotFoundException();
         }
-
-
-
     }
 
+    public void assignCIModuleToTelevision(Long id, Long ciModuleId){
+            var optionalTelevision2 = repos.findById(id);
+            var optionalCIModule = cimrepos.findById(ciModuleId);
 
-
-
-}
+            if (optionalTelevision2.isPresent() && optionalCIModule.isPresent()){
+              var television2 = optionalTelevision2.get();
+              var ciModule = optionalCIModule.get();
+              television2.setCiModule(ciModule);
+              repos.save(television2);
+            } else {
+                throw new RecordNotFoundException();
+            }
+    }
+    }

@@ -1,10 +1,13 @@
 package com.example.Huiswerkles10backend.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name="CI-Modules")
+@Table(name="ci-Modules")
 public class CIModule {
 
     @Id
@@ -13,6 +16,11 @@ public class CIModule {
     private String name;
     private String type;
     private Double price;
+
+
+    @OneToMany(mappedBy = "ciModule")
+    @JsonIgnore
+    private List<Television> televisions;
 
     public Long getId() {
         return id;
@@ -44,5 +52,13 @@ public class CIModule {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public List<Television> getTelevisions() {
+        return televisions;
+    }
+
+    public void setTelevisions(List<Television> televisions) {
+        this.televisions = televisions;
     }
 }

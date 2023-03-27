@@ -33,6 +33,13 @@ public class Television {
     @OneToOne
     private RemoteController remoteController;
 
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ci_module_id")
+    private CIModule ciModule;
+
+
+
 //    //de makkelijke manier-simpele manier met personalisatie en gedeelte jointable is om de namen handmatig aan te passen
 //    @ManyToMany
 //    @JoinTable(name="television_wallbrackets_combined_table",
@@ -51,6 +58,8 @@ public class Television {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 
     public String getBrand() {
         return brand;
@@ -188,6 +197,12 @@ public class Television {
         this.remoteController = remoteController;
     }
 
+    public CIModule getCiModule() {
+        return ciModule;
+    }
 
+    public void setCiModule(CIModule ciModule) {
+        this.ciModule = ciModule;
+    }
 }
 
