@@ -37,7 +37,7 @@ public class CIModuleController {
 
 
     @PostMapping()
-    public ResponseEntity<CIModuleDto> createCIModule(@RequestBody CIModuleDto dto) {
+    public ResponseEntity<CIModuleDto> createCIModule(@Valid @RequestBody CIModuleDto dto) {
         CIModuleDto ciModuleDto = ciModuleService.createCIModule(dto);
 //        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentRequest().path("/" + CIModuleDto.getId()).toUriString());
         return ResponseEntity.ok(ciModuleDto);

@@ -34,6 +34,7 @@ public class Television {
     private RemoteController remoteController;
 
 
+    // Dit is de owner kan van de relatie. Er staat een foreign key in de database
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ci_module_id")
     private CIModule ciModule;

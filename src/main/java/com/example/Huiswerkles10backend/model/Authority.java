@@ -1,8 +1,10 @@
 package com.example.Huiswerkles10backend.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
-/*annotatie*/
+@Entity
 @IdClass(AuthorityKey.class)
 @Table(name = "authorities")
 public class Authority implements Serializable {

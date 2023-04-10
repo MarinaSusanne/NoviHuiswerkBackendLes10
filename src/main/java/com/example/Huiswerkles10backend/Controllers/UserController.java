@@ -1,9 +1,13 @@
 package com.example.Huiswerkles10backend.Controllers;
 
-import nl.novi.techiteasy1121.dtos.UserDto;
-import nl.novi.techiteasy1121.exceptions.BadRequestException;
-import nl.novi.techiteasy1121.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.Huiswerkles10backend.Exceptions.BadRequestException;
+import com.example.Huiswerkles10backend.dtos.input.UserDto;
+import com.example.Huiswerkles10backend.model.User;
+import com.example.Huiswerkles10backend.services.UserService;
+//import nl.novi.techiteasy1121.dtos.UserDto;
+//import nl.novi.techiteasy1121.exceptions.BadRequestException;
+//import nl.novi.techiteasy1121.services.UserService;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -18,6 +22,11 @@ import java.util.Map;
 public class UserController {
 
     /*inject userService*/
+private final UserService userService;
+
+public UserController(UserService userService){
+    this.userService = userService;
+}
 
     @GetMapping(value = "")
     public ResponseEntity<List<UserDto>> getUsers() {

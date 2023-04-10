@@ -2,6 +2,7 @@ package com.example.Huiswerkles10backend.dtos.input;
 
 
 import jakarta.validation.constraints.*;
+//mag zowel private als public zijn, wees wel uniform! Zorg dat je bij private ddan wel getters ens etters hebt
 
 public class TelevisionInputDto {
     @NotNull(message = "Type is required") // Type moet ingevuld verplicht worden in je JSON, je krijgt een message als je dit niet doet.

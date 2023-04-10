@@ -40,7 +40,7 @@ public class TelevisionController {
 
 
     @PostMapping()
-    public ResponseEntity<TelevisionDto> createTelevision(@RequestBody TelevisionInputDto televisionInputDto) {
+    public ResponseEntity<TelevisionDto> createTelevision(@Valid @RequestBody TelevisionInputDto televisionInputDto) {
         TelevisionDto televisionDto = televisionService.createTelevision(televisionInputDto);
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentRequest().path("/" + televisionDto.getId()).toUriString());
         return ResponseEntity.created(uri).body(televisionDto);

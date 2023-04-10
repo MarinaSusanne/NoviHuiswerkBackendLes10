@@ -9,6 +9,11 @@ In deze applictie staat alsnog wel boven elke klasse ter demonstratie.
 Vergeet niet om in de security config ook de ".cors()" optie aan te zetten.
  */
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 @Configuration
 public class GlobalCorsConfiguration
 {

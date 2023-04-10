@@ -1,10 +1,14 @@
 package com.example.Huiswerkles10backend.services;
 
 
+import com.example.Huiswerkles10backend.dtos.input.UserDto;
+import com.example.Huiswerkles10backend.model.Authority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.ArrayList;
-
+import java.util.Set;
 
 
 /*annotatie*/

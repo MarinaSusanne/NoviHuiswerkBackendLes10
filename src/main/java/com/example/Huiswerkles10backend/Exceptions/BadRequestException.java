@@ -6,6 +6,6 @@ public class BadRequestException extends RuntimeException {
         super();
     }
     public BadRequestException(String message) {
-        super(message);
+        super("gewoon een stom request");
     }
 }

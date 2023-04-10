@@ -2,6 +2,7 @@ package com.example.Huiswerkles10backend.dtos.output;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+//output dto's hebben geen validatie regels
 
 public class CIModuleDto {
     public Long id;

@@ -1,7 +1,8 @@
 package com.example.Huiswerkles10backend.dtos.input;
 
+import com.example.Huiswerkles10backend.model.Authority;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import nl.novi.techiteasy1121.models.Authority;
+//import nl.novi.techiteasy1121.models.Authority;
 
 import java.util.Set;
 

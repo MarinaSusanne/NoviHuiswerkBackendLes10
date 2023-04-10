@@ -17,7 +17,7 @@ public class CIModule {
     private String type;
     private Double price;
 
-
+//target kant van de relatie.
     @OneToMany(mappedBy = "ciModule")
     @JsonIgnore
     private List<Television> televisions;

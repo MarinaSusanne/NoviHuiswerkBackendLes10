@@ -1,7 +1,9 @@
 package com.example.Huiswerkles10backend.Controllers;
 
+import com.example.Huiswerkles10backend.Exceptions.BadRequestException;
 import com.example.Huiswerkles10backend.Exceptions.RecordNotFoundException;
 import com.example.Huiswerkles10backend.Exceptions.TelevisionNameTooLongException;
+import com.example.Huiswerkles10backend.Exceptions.UsernameNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,5 +28,16 @@ public class ExceptionController {
     public ResponseEntity<String> exception(TelevisionNameTooLongException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = UsernameNotFoundException.class)
+    public ResponseEntity<String> exception(UsernameNotFoundException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = BadRequestException.class)
+    public ResponseEntity<String> exception(BadRequestException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
 
 }
