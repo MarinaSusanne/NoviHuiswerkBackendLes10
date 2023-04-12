@@ -39,8 +39,10 @@ public AuthenticationController(AuthenticationManager authenticationManager, Cus
      */
     @GetMapping(value = "/authenticated")
     public ResponseEntity<Object> authenticated(Authentication authentication, Principal principal) {
+        //Principal.getname();
         return ResponseEntity.ok().body(principal);
     }
+        /// kun je gewoon een get methode doen /authenticated en dan voeg je je tokens toe en dan geen body en geeft het je een Principal terug met info
 
     /*
     Deze methode geeft het JWT token terug wanneer de gebruiker de juiste inloggegevens op geeft.

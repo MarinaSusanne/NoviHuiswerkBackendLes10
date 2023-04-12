@@ -16,6 +16,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+//in de security config - addFilterjwtRequestFiter zet je ervoor neer, zodat hij eerst door deze filter moet.
+
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 

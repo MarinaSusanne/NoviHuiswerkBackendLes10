@@ -18,6 +18,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtUtil {
+    //hier hoef je niet echt iets aan aan te passen, enkel de secret
 
     // De secret key moet minimaal 256 bits lang zijn, of grofweg 45 characters
     private final static String SECRET_KEY = "susanne1234susanne1234susanne1234susanne1234";
@@ -53,13 +54,18 @@ public class JwtUtil {
         return createToken(claims, userDetails.getUsername());
     }
 
+    ///map met string en objects = eigenlijk een soort dto
+
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
                 .setClaims(claims)
+                //kan je nog claims maken, bijvoorbeeld claims.put()
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
+                //experation date kan je aanpassen
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 10))
                 .signWith(getSigningKey() , SignatureAlgorithm.HS256)
+                //signing key - gebruiken we HS256 encryptie
                 .compact();
     }
 

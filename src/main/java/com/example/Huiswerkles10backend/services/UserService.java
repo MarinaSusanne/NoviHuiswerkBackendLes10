@@ -8,6 +8,7 @@ import com.example.Huiswerkles10backend.model.Authority;
 import com.example.Huiswerkles10backend.model.User;
 import com.example.Huiswerkles10backend.repository.UserRepository;
 import com.example.Huiswerkles10backend.utils.RandomStringGenerator;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,9 +19,11 @@ import java.util.Set;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
         public List<UserDto> getUsers() {
@@ -50,6 +53,8 @@ public class UserService {
     public String createUser(UserDto userDto) {
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         userDto.setApikey(randomString);
+        //hieronder is deze zin eraan toegevoegd zodat code wel encrypted raakt, in huiswerkklas gedaan
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         User newUser = userRepository.save(toUser(userDto));
         return newUser.getUsername();
     }

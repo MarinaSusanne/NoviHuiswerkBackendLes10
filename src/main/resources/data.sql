@@ -12,13 +12,13 @@ values (001,'Sony_bravia' , 'Sony', 'KD_43x85KP', 818.00,50.00,100,'Led_Lcd','Go
 
 
 
-INSERT INTO wall_bracket (id, size, adjustable, name, price) VALUES (1001, '25X32', false, 'LG bracket', 32.23),
+INSERT INTO wallbrackets (id, size, adjustable, name, price) VALUES (1001, '25X32', false, 'LG bracket', 32.23),
                                                                     (1002, '25X32/32X40', true, 'LG bracket', 32.23),
                                                                     (1003, '25X25', false, 'Philips bracket', 32.23),
                                                                     (1004, '25X32/32X40', true, 'Nikkei bracket', 32.23),
                                                                     (1005, '25X32', false, 'Nikkei bracket', 32.23);
 
-INSERT INTO cimodule (id, name, type, price) VALUES (1001, 'universal CI-module', '23JI12', 32.5);
+INSERT INTO cimodules (id, name, type, price) VALUES (1001, 'universal CI-module', '23JI12', 32.5);
 
 INSERT INTO remote_controller (id, compatible_with, battery_type, name, brand, price, original_stock) VALUES (1001, 'NH3216SMART', 'AAA', 'Nikkei HD smart TV controller', 'Nikkei', 12.99, 235885),
                                                                                                              (1002, '43PUS6504/12/L', 'AA', 'Philips smart TV controller', 'Philips', 12.99, 235885),

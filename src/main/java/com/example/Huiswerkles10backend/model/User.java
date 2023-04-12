@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/*annotatie*/
+@Entity
 @Table(name = "users")
 public class User {
 

@@ -46,9 +46,10 @@ public UserController(UserService userService){
 
     }
 
+    //dit is basically registeren!!!!! In Postmen gewoon invullen
     @PostMapping(value = "")
     public ResponseEntity<UserDto> createKlant(@RequestBody UserDto dto) {;
-
+    // wordt automastisch een user. Of anders een extra methode toevoegen. deze heeft endpoint/"users"
         String newUsername = userService.createUser(dto);
         userService.addAuthority(newUsername, "ROLE_USER");
 
@@ -76,6 +77,7 @@ public UserController(UserService userService){
     public ResponseEntity<Object> getUserAuthorities(@PathVariable("username") String username) {
         return ResponseEntity.ok().body(userService.getAuthorities(username));
     }
+
 
     @PostMapping(value = "/{username}/authorities")
     public ResponseEntity<Object> addUserAuthority(@PathVariable("username") String username, @RequestBody Map<String, Object> fields) {

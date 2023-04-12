@@ -3,7 +3,7 @@ package com.example.Huiswerkles10backend.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="remotecontrollers")
+@Table(name="remote_controller")
 public class RemoteController {
 
     @Id
@@ -18,7 +18,7 @@ public class RemoteController {
 
 
 
-    //kiez een mappedBy bij een van de twee realties, komt bij de ander te staan. Dus sowieso doen, anders komen ze aan beide kanten
+    //kies een mappedBy bij een van de twee realties, komt bij de ander te staan. Dus sowieso doen, anders komen ze aan beide kanten
     @OneToOne (mappedBy="remoteController")
     private Television television;
 
